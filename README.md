@@ -35,7 +35,7 @@ The analyzer is designed to detect failures from more than just SSH. It includes
 2. Run:
 
 ```bash
-python3 analyzer.py
+python3 analyzer.py sample.log
 ```
 
 ## Example output
@@ -57,4 +57,14 @@ IP Address      Failed Attempts
 203.0.113.77    2
 ```
 
+## Why this is useful for cybersecurity
+
+This mini-project demonstrates practical SOC and threat detection fundamentals:
+
+- **Triage:** Quickly spot repeated failed logins from the same source.
+- **Investigation:** Correlate IP, username, and service to understand attack patterns.
+- **Detection engineering basics:** Turn raw logs into actionable summaries.
+- **Portfolio value:** Shows entry-level Python + cybersecurity log analysis skills.
+
+A natural next step is adding alert thresholds (for example, flagging IPs with 5+ failed attempts) or exporting results to CSV/JSON.
 

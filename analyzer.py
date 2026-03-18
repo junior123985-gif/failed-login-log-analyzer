@@ -6,6 +6,7 @@ login/authentication events across multiple services.
 """
 
 import re
+import sys
 from collections import defaultdict
 
 
@@ -108,6 +109,15 @@ def print_summary_table(events: list[dict], failed_by_ip: dict[str, int]) -> Non
 
 
 def main() -> None:
+    """Read a log file from CLI args, detect failed auth events, and print results."""
+    # Expect a log file path as the first command-line argument.
+    # Example: python3 analyzer.py sample.log
+    if len(sys.argv) < 2:
+        print("Usage: python3 analyzer.py <log_file_path>")
+        print("Example: python3 analyzer.py sample.log")
+        return
+
+    log_file = sys.argv[1]
     """Read sample.log, detect failed auth events, and print summary results."""
     log_file = "sample.log"
     failed_events = []
@@ -140,6 +150,7 @@ def main() -> None:
                     failed_attempts_by_ip[ip] += 1
 
         if not failed_events:
+            print(f"No failed login or authentication events were found in {log_file}")
             print("No failed login or authentication events were found in sample.log")
             return
 
