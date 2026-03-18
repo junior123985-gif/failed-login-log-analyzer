@@ -67,3 +67,4 @@ This mini-project demonstrates practical SOC and threat detection fundamentals:
 - **Portfolio value:** Shows entry-level Python + cybersecurity log analysis skills.
 
 A natural next step is adding alert thresholds (for example, flagging IPs with 5+ failed attempts) or exporting results to CSV/JSON.
+

@@ -118,6 +118,8 @@ def main() -> None:
         return
 
     log_file = sys.argv[1]
+    """Read sample.log, detect failed auth events, and print summary results."""
+    log_file = "sample.log"
     failed_events = []
     failed_attempts_by_ip = defaultdict(int)
 
@@ -149,6 +151,7 @@ def main() -> None:
 
         if not failed_events:
             print(f"No failed login or authentication events were found in {log_file}")
+            print("No failed login or authentication events were found in sample.log")
             return
 
         print_summary_table(failed_events, failed_attempts_by_ip)
